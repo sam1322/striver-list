@@ -1,4 +1,6 @@
-package Striver;
+package Striver.Arrays;
+
+import Striver.Sorting.QuickSort;
 
 public class MoveAllZeroes {
 

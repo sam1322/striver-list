@@ -1,4 +1,4 @@
-package Striver;
+package Striver.Arrays;
 
 public class RemoveDuplicates {
 
