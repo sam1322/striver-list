@@ -30,11 +30,40 @@ public class SortColors {
         }
     }
 
+    public static void DutchNationalFlag(int[] nums) {
+        int n = nums.length;
+        int low = 0;
+        int mid = low;
+        int high = n - 1;
+
+        while (low <= high && mid <= high){
+            if (nums[mid] == 0) {
+                swap(nums, low, mid);
+                low++;
+                mid++;
+            } else if (nums[mid] == 1) {
+                mid++;
+            } else {
+                swap(nums, mid, high);
+                high--;
+            }
+        }
+    }
+
+    public static void swap(int[] num, int a, int b) {
+        int n = num.length;
+        if (a >= n || a < 0 || b >= n || b < 0) return;
+        int t = num[a];
+        num[a] = num[b];
+        num[b] = t;
+        System.out.println("swapped a = " + a + " b " + b);
+    }
+
     public static void main(String[] args) {
         int[] num = {1, 2, 1, 1, 2, 0, 0, 0};
 
         int k = 3;
-        sortColors(num);
+        DutchNationalFlag(num);
         QuickSort.PrintArr(num);
     }
 }
