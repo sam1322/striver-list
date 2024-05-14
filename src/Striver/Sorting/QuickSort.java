@@ -3,7 +3,7 @@ package Striver.Sorting;
 import java.util.Scanner;
 
 public class QuickSort {
-    private static int partition (int[] num,int low ,int high){
+    public static int partition (int[] num,int low ,int high){
       int pivot = num[low];
       int i =  low;
       int j =  high;

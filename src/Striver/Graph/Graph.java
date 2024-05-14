@@ -14,22 +14,13 @@ public class Graph {
         return adjVertices;
     }
 
+    public List<Vertex> getAdjVertices(String label) {
+        return adjVertices.get(new Vertex(label));
+    }
+
     public void setAdjVertices(Map<Vertex, List<Vertex>> adjVertices) {
         this.adjVertices = adjVertices;
     }
-
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (!(o instanceof Graph graph)) return false;
-//        return Objects.equals(getAdjVertices(), graph.getAdjVertices());
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(getAdjVertices());
-//    }
-
 
     public Graph(Map<Vertex, List<Vertex>> adjVertices) {
         this.adjVertices = adjVertices;
@@ -51,6 +42,7 @@ public class Graph {
         adjVertices.get(v1).add(v2);
         adjVertices.get(v2).add(v1);
     }
+
     void removeEdge(String label1, String label2) {
         Vertex v1 = new Vertex(label1);
         Vertex v2 = new Vertex(label2);
@@ -62,8 +54,41 @@ public class Graph {
             eV2.remove(v1);
     }
 
-    void printGraph(){
-        for(Vertex v : adjVertices.keySet()){
+    Set<String> Dfs(Graph graph, String root) {
+        Set<String> visited = new LinkedHashSet<String>();
+        Stack<String> stack = new Stack<String>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            String vertex = stack.pop();
+            if (!visited.contains(vertex)) {
+                visited.add(vertex);
+                for (Vertex v : graph.getAdjVertices(vertex)) {
+                    stack.push(v.label);
+                }
+            }
+        }
+        return visited;
+    }
+
+    Set<String> Bfs(Graph graph, String root) {
+        Set<String> visited = new LinkedHashSet<String>();
+        Queue<String> queue = new LinkedList<String>();
+        queue.add(root);
+        visited.add(root);
+        while (!queue.isEmpty()) {
+            String vertex = queue.poll();
+            for (Vertex v : graph.getAdjVertices(vertex)) {
+                if (!visited.contains(v.label)) {
+                    visited.add(v.label);
+                    queue.add(v.label);
+                }
+            }
+        }
+        return visited;
+    }
+
+    void printGraph() {
+        for (Vertex v : adjVertices.keySet()) {
             System.out.println(v.label + " -> " + adjVertices.get(v));
         }
     }
