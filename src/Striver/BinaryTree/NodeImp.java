@@ -32,33 +32,6 @@ public class NodeImp {
         System.out.print(root.data + " ");
     }
 
-    public static  List<Integer> morrisInorder(Node root){
-        List<Integer> inorderList = new ArrayList<>();
-        Node cur = root;
-        while(cur!=null){
-            if(cur.left == null){
-                inorderList.add(cur.data);
-                cur = cur.right;
-            }
-            else{
-                Node prev = cur.left ;
-                while(prev.right != null && prev.right != cur){
-                    prev=prev.right;
-                }
-                if(prev.right == null){
-                    prev.right = cur;
-                    cur = cur.left;
-                }
-                else{
-                    prev.right = null;
-                    inorderList.add(cur.data);
-                    cur = cur.right;
-                }
-            }
-        }
-        return inorderList;
-    }
-
     public static void levelOrder(Node root) {
         if (root == null) return;
         Queue<Node> q = new LinkedList<>();
@@ -75,8 +48,8 @@ public class NodeImp {
         }
     }
 
-    public static void PrintList(List<Integer> list ){
-        for(Integer i : list){
+    public static void PrintList(List<Integer> list) {
+        for (Integer i : list) {
             System.out.print(i + " ");
         }
         System.out.println();
@@ -93,10 +66,12 @@ public class NodeImp {
         // the root with a key value of 3
         root.right = new Node(3);
 
-        root.left.left = new Node(4);
+        Node q = root.left.left = new Node(4);
         root.left.right = new Node(5);
 
-        root.left.right.left = new Node(8);
+        Node p = root.left.right.left = new Node(8);
+//        root.left.right.left.right = new Node(8);
+//        root.left.right.left.right.right = new Node(8);
 
         root.right.left = new Node(6);
         root.right.right = new Node(7);
@@ -121,8 +96,37 @@ public class NodeImp {
         System.out.println();
 
         System.out.print("MorInorder: ");
-        List<Integer> list = morrisInorder(root);
+        List<Integer> list = MorrisTraversal.morrisInorder(root);
         PrintList(list);
+
+        System.out.print("Left View : ");
+        List<Integer> list3 = LeftView.leftView(root);
+        PrintList(list3);
+
+        System.out.print("Bottom View : ");
+        List<Integer> list4 = LeftView.bottomView(root);
+        PrintList(list4);
+
+        System.out.print("Diameter of the Tree : ");
+        System.out.println(Diameter.diameterOfTree(root));
+
+
+        System.out.print("is the Tree balanced : ");
+        System.out.println(Diameter.checkBalanced(root));
+
+        Node lca = Diameter.lowestCommonAncestor(root, p, q);
+        if (lca != null) {
+            System.out.println("lca of " + p.data + " and " + q.data + " is " + lca.data);
+        }
+
+        System.out.print("Boundary Traversal : ");
+        System.out.println(BoundaryTraversal.printBoundary(root));
+
+        System.out.print("Max Sum  : ");
+        System.out.println(Diameter.maxSum(root));
+
+        System.out.print("Max Sum  : ");
+        System.out.println(Diameter.maxSum(new Node(-2)));
     }
 }
 
