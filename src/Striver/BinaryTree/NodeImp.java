@@ -127,6 +127,8 @@ public class NodeImp {
 
         System.out.print("Max Sum  : ");
         System.out.println(Diameter.maxSum(new Node(-2)));
+
+        System.out.println(CheckSum.isSumProperty(root));
     }
 }
 
