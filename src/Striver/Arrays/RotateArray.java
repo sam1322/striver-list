@@ -4,8 +4,8 @@ import Striver.Sorting.QuickSort;
 
 public class RotateArray {
 
-    public static void reverse(int []num,int start,int end){
-        while(start < end){
+    public static void reverse(int[] num, int start, int end) {
+        while (start < end) {
             int temp = num[start];
             num[start] = num[end];
             num[end] = temp;
@@ -14,14 +14,14 @@ public class RotateArray {
         }
     }
 
-    public static  void rotate(int[] nums, int k) {
+    public static void rotate(int[] nums, int k) {
         int n = nums.length;
-        int[] arr = new int[n];
         k = k % n;
-        int pos = n - k ;
-        reverse(nums,0,pos - 1);
-        reverse(nums,pos,n - 1);
-        reverse(nums,0,n-1);
+        int pos = n - k;
+        reverse(nums, 0, pos - 1);
+        reverse(nums, pos, n - 1);
+        reverse(nums, 0, n - 1);
+//        int[] arr = new int[n];
 //        for (int i = 0; i < n; i++) {
 //            int pos = (n + i - k) % n;
 //            arr[i] = nums[pos];
@@ -39,7 +39,7 @@ public class RotateArray {
 
 //        int k = removeDuplicates(num);
 //        System.out.println("K = " + k);
-        rotate(num,k);
+        rotate(num, k);
         QuickSort.PrintArr(num);
     }
 }

@@ -26,7 +26,7 @@ public class CheckSum {
 
     }
 
-    public static void binaryTreeToChildrenSumTree(TreeNode root){
+    public static void  binaryTreeToChildrenSumTree(TreeNode root){
         if (root == null) {
             return;
         }

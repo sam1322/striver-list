@@ -6,7 +6,6 @@ public class MinHeapToMaxHeap {
     private static void MaxHeapify(int key, int[] heapArray) {
         int n = heapArray.length;
 
-
         int l = 2 * key + 1;
         int r = 2 * key + 2;
 

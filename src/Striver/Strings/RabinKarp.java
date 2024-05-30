@@ -78,11 +78,8 @@ public class RabinKarp {
 
     public static boolean rabinKarp(String text, String pattern) {
         long p = 31;
-//        long p = 256;
         long pow = 1;
-        long dsv = 0;
         long mod = 1000000007;
-//        long mod = 101;
         int patLen = pattern.length();
         int textLen = text.length();
         long patternHash = 0;
