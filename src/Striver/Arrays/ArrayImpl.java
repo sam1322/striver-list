@@ -25,6 +25,8 @@ public class ArrayImpl {
         }
     }
 
+
+
     public static void print2dArrlong(long[][] arr) {
         for (long[] i : arr) {
             for (long j : i)
