@@ -1,4 +1,4 @@
-.package Striver.DynamicProgramming;
+package Striver.DynamicProgramming;
 
 import java.util.Arrays;
 
