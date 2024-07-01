@@ -9,6 +9,7 @@ public class MaximumProductSubarray {
         for (int i = 0; i < n; i++) {
             if (pre == 0) pre = 1;
             if (suff == 0) suff = 1;
+            //for handling overflow
             if (pre * arr[i] > Integer.MAX_VALUE || pre * arr[i] < Integer.MIN_VALUE) continue;
             if (suff * arr[n - i - 1] > Integer.MAX_VALUE || suff * arr[n - i - 1] < Integer.MIN_VALUE) continue;
 

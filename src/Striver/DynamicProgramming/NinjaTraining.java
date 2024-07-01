@@ -50,18 +50,7 @@ public class NinjaTraining {
         for (int i = 0; i < n; ++i) {
             Arrays.fill(dp[i], -1);
         }
-//        for (int i = 0; i < n; ++i) {
-//            for (int j = 0; j < 4; ++j) System.out.print(dp[i][j] + " ");
-//            System.out.println();
-//        }
-
-//        int val = Math.max(f(n - 1, 0, activities), Math.max(f(n - 1, 1, activities), f(n - 1, 2, activities)));
         int val = func(n - 1, 3, activities);
-
-//        for (int i = 0; i < n; ++i) {
-//            for (int j = 0; j < 4; ++j) System.out.print(dp[i][j] + " ");
-//            System.out.println();
-//        }
         return val;
     }
 
@@ -88,9 +77,9 @@ public class NinjaTraining {
                 dp[day][last] = mx;
             }
         }
-        for(int i = 0 ; i < n ; i++){
-            for(int j =  0 ; j < 4; ++j)
-                System.out.print(dp[i][j]+" ");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < 4; ++j)
+                System.out.print(dp[i][j] + " ");
             System.out.println();
         }
         return dp[n - 1][3];

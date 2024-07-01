@@ -19,6 +19,16 @@ public class RemoveDuplicates {
         }
         return k;
     }
+    public  static int removeDuplicates_Striver(int[] arr) {
+        int i = 0;
+        for (int j = 1; j < arr.length; j++) {
+            if (arr[i] != arr[j]) {
+                i++;
+                arr[i] = arr[j];
+            }
+        }
+        return i + 1;
+    }
 
     public static void PrintArr(int[] num) {
         for (int i : num) {
@@ -33,7 +43,8 @@ public class RemoveDuplicates {
         int[] num = {0,0,1,1,1,2,2,3,3,4};
 //        int[] num = {0, 0, 1, 1, 2};
 
-        int k = removeDuplicates(num);
+//        int k = removeDuplicates(num);
+        int k = removeDuplicates_Striver(num);
         System.out.println("K = " + k);
         PrintArr(num);
 

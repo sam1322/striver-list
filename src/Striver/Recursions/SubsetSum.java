@@ -19,11 +19,22 @@ public class SubsetSum {
         }
         return arr;
     }
+    public static void subsetSum(int ind,int cur,int[] nums , ArrayList<Integer> list){
+        if(ind == nums.length){
+            list.add(cur);
+            return ;
+        }
+        subsetSum(ind+1,cur,nums,list);
+        subsetSum(ind+1,cur + nums[ind],nums,list);
+    }
     public static ArrayList<Integer> subsetSum(int[] num){
-        ArrayList<Integer> soln = subsetSum(num,0);
+//        ArrayList<Integer> soln = subsetSum(num,0);
+        ArrayList<Integer> soln = new ArrayList<>();
+        subsetSum(0,0,num,soln);
         Collections.sort(soln);
         return soln;
     }
+
 
     public static void PrintList(ArrayList<Integer>arr){
         System.out.println("Hey");
