@@ -14,7 +14,7 @@ class Dfs {
         //getting neighbour nodes
         for(Integer it: adj.get(node)) {
             if(vis[it] == false) {
-                vis[node] = true;
+                vis[it] = true;       //marking current node as visited
                 dfs(it, vis, adj, ls);
             }
         }
@@ -46,9 +46,10 @@ class Dfs {
 
         Dfs sl = new Dfs();
         ArrayList < Integer > ans = sl.dfsOfGraph(5, adj);
-        int n = ans.size();
-        for(int i = 0;i<n;i++) {
-            System.out.print(ans.get(i)+" ");
-        }
+        System.out.println(ans);
+//        int n = ans.size();
+//        for(int i = 0;i<n;i++) {
+//            System.out.print(ans.get(i)+" ");
+//        }
     }
 }
