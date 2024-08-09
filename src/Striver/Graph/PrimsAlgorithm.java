@@ -50,18 +50,8 @@ public class PrimsAlgorithm {
         return sum;
     }
 
-    public static void main(String[] args) {
-//        ArrayList<ArrayList<Pair>> adj = new ArrayList<>();
+    public static void print(int[][] edges,int V, int S){
         ArrayList<ArrayList<ArrayList<Integer>>> adj = new ArrayList<>();
-        int V = 5, S = 0, E = 0;
-        int[][] edges = {
-                {0, 1, 2},
-                {0, 2, 1},
-                {1, 2, 1},
-                {2, 3, 2},
-                {2, 4, 2},
-                {3, 4, 1}
-        };
 
         for (int i = 0; i <= V; i++) {
             adj.add(new ArrayList<>());
@@ -85,5 +75,28 @@ public class PrimsAlgorithm {
 //            adj.get(edges[i][1]).add(new Pair(edges[i][2], edges[i][0]));
         }
         System.out.println(primsAlgo(V, adj, S));
+    }
+
+    public static void main(String[] args) {
+//        ArrayList<ArrayList<Pair>> adj = new ArrayList<>();
+        int V = 5, S = 0, E = 0;
+        int[][] edges = {
+                {0, 1, 2},
+                {0, 2, 1},
+                {1, 2, 1},
+                {2, 3, 2},
+                {2, 4, 2},
+                {3, 4, 1}
+        };
+        print(edges,V,S);
+
+
+        V = 4 ;
+        S = 4;
+        edges = new int[][]{
+                {}
+        };
+
+
     }
 }

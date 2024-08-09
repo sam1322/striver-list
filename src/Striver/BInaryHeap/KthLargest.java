@@ -30,10 +30,21 @@ public class KthLargest {
         return -1;
     }
 
+    public static int findKthLargest3(int[] nums, int k) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for (int i : nums) {
+            pq.add(i);
+            while (pq.size() > k) pq.poll();
+        }
+        return pq.peek();
+    }
+
+
     public static void main(String[] args) {
         int[] arr = {3, 2, 1, 5, 6, 4};
         int k = 2;
         System.out.println(findKthLargest(arr, k));
         System.out.println(findKthLargest2(arr, k));
+        System.out.println(findKthLargest3(arr, k));
     }
 }
